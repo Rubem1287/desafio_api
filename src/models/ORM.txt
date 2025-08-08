@@ -1,0 +1,4 @@
+https://www.talitasilveira.com/artigo/mapeadores-objeto-relacional-orms-o-que-sao-porque-foram-criados-e-para-o-que-servem
+
+
+ORM que vou usar agora é o sequelize

@@ -1,0 +1,30 @@
+{
+  "name": "desafio_api",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "npm install && install node index.js",
+    "predev": "npm install  && npm  run docker-up",
+    "dev": "nodemon src/index.js",
+    "docker-up": "docker-compose -f docker-compose-dev.yml up -d",
+    "postdocker-up": "sleep 5 && npm run run-migration",
+    "run-migration": "npm run sequelize db:migrate",
+    "docker-down": "docker-compose -f docker-compose-dev.yml down",
+    "dev:debug": "nodemon --inspect src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "pg": "^7.18.2",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^5.22.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4",
+    "prettier": "^1.19.1",
+    "sequelize-cli": "^5.5.1"
+  }
+}

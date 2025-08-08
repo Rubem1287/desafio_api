@@ -1,0 +1,1 @@
+Modelagem do banco, regra de negócio, dbaver commutity 
