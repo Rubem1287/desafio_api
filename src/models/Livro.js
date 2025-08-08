@@ -1,26 +1,37 @@
 import Sequelize, { DataTypes, Model } from 'sequelize';
 
-
-
 class Livro extends Model {
   static init(sequelize) {
     super.init(
       {
         id: {
-          type: Sequelize.INTEGER,
-          autoIncrement: true,
+          type: Sequelize.UUID,
+          allowNull: false,
           primaryKey: true,
+          defaultValue: Sequelize.UUIDV4,
         },
-      
-        title: Sequelize.STRING,
-        number_page: Sequelize.INTEGER,
-        code_ISBN: Sequelize.STRING,
-        editor: Sequelize.STRING
-
+        title: {
+          type: Sequelize.STRING,
+          allowNull: false,
+        },
+        pages: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+        },
+        ISBN: {
+          type: Sequelize.STRING,
+          allowNull: false,
+        },
+        editor: {
+          type: Sequelize.STRING,
+          allowNull: false,
+        },
       },
       {
         sequelize,
-        modelName: 'livro',
+        modelName: 'Livro',
+        tableName: 'livros',
+        timestamps: true,
       }
     );
   }

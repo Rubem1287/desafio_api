@@ -1,37 +1,8 @@
 "use strict";
 
-const { INTEGER } = require("sequelize");
-
 module.exports = {
-  // async up(queryInterface, Sequelize) {
-  //   await queryInterface.createTable("livro", {
-  //     id: {
-  //       type: Sequelize.UUID,
-  //       allowNull: false,
-  //       primaryKey: true,
-  //       defaultValue: Sequelize.UUIDV4,
-  //     },
-  //     title: {
-  //       type: Sequelize.STRING,
-  //       allowNull: false,
-  //     },
-  //     pages: {
-  //       type: Sequelize.INTEGER,
-  //       allowNull: false,
-  //     },
-  //     ISBN: {
-  //       type: Sequelize.INTEGER,
-  //       allowNull: false,
-  //     },
-  //     editor: {
-  //       type: Sequelize.STRING,
-  //       allowNull: false,
-  //     },
-  //   });
-  //},
-
-  up: (queryInterface, Sequelize) => {
-    queryInterface.createTable("livro", {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable("livros", {
       id: {
         type: Sequelize.UUID,
         allowNull: false,
@@ -47,17 +18,27 @@ module.exports = {
         allowNull: false,
       },
       ISBN: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       editor: {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      createdAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.NOW,
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.NOW,
+      },
     });
   },
 
-  down: (queryInterface, Sequelize) => {
-    queryInterface.dropTable("livro");
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable("livros");
   },
 };
