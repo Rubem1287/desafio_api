@@ -4,6 +4,6 @@ services:
     environment:
       POSTGRES_DB: desafio_api
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: docker
+      POSTGRES_PASSWORD: postgres
     ports:
       - "5432:5432"

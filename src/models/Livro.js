@@ -13,18 +13,47 @@ class Livro extends Model {
         title: {
           type: Sequelize.STRING,
           allowNull: false,
+          validate: {
+            notEmpty: {
+              msg: 'O título não pode estar vazio'
+            },
+            len: {
+              args: [1, 255],
+              msg: 'O título deve ter entre 1 e 255 caracteres'
+            }
+          }
         },
         pages: {
           type: Sequelize.INTEGER,
           allowNull: false,
+          validate: {
+            isInt: {
+              msg: 'O número de páginas deve ser um número inteiro'
+            },
+            min: {
+              args: [1],
+              msg: 'O número de páginas deve ser maior que 0'
+            }
+          }
         },
         ISBN: {
           type: Sequelize.STRING,
           allowNull: false,
+          unique: true,
+          validate: {
+            notEmpty: {
+              msg: 'O ISBN não pode estar vazio'
+            }
+          }
         },
         editor: {
           type: Sequelize.STRING,
           allowNull: false,
+          validate: {
+            notEmpty: {
+              msg: 'O editor não pode estar vazio'
+            }
+          }
         },
       },
       {
