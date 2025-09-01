@@ -10,17 +10,18 @@ import {
 const routes = express.Router();
 
 // GET routes
-routes.get("/listarlivros", getAllBook);
+routes.get("/livros", getAllBook);
 routes.get("/:id", getBookById);
 
 // POST routes
-routes.post("/cadastrar", createBook);
+routes.post("livros/cadastrar", createBook);
 
 // PUT routes
 routes.put("/:id", updateBook);
-//routes.put("/:id/atualizarnome", updateBook);
 
 // DELETE routes
-routes.delete("/:id", deleteBook);
+routes.delete("livros/edicao/:livroid", deleteBook);
 
 export default routes;
+
+
